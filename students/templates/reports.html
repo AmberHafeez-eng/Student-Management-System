@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Reports Dashboard</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6f9;
+}
+
+
+.card{
+
+background:white;
+padding:25px;
+margin:20px;
+border-radius:15px;
+box-shadow:0 5px 10px #ccc;
+
+}
+
+
+a{
+
+display:inline-block;
+padding:12px;
+background:#1f4e79;
+color:white;
+text-decoration:none;
+border-radius:8px;
+margin:5px;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<h1>
+📊 Reports Dashboard
+</h1>
+
+
+
+<div class="card">
+
+<h2>
+Total Students
+</h2>
+
+<h1>
+{{total_students}}
+</h1>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h2>
+Attendance
+</h2>
+
+<h1>
+{{attendance_percentage}}%
+</h1>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h2>
+Average Result
+</h2>
+
+<h1>
+{{average_result}}
+</h1>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h2>
+Fees Collected
+</h2>
+
+<h1>
+{{total_fees}}
+</h1>
+
+</div>
+
+
+
+<a href="{% url 'attendance_report' %}">
+📅 Attendance Report
+</a>
+
+
+<a href="{% url 'result_report' %}">
+📝 Result Report
+</a>
+
+
+<a href="{% url 'fee_report' %}">
+💰 Fee Report
+</a>
+
+
+<a href="{% url 'export_students_excel' %}">
+📥 Export Excel
+</a>
+
+
+
+</body>
+
+</html>

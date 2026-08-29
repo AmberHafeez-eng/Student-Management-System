@@ -1,0 +1,46 @@
+<h1>Fee Report</h1>
+
+
+<h2>
+Total Paid:
+{{total_paid}}
+</h2>
+
+
+<table border="1">
+
+<tr>
+<th>Student</th>
+<th>Amount</th>
+<th>Status</th>
+</tr>
+
+
+{% for fee in fees %}
+
+<tr>
+
+<td>
+{{fee.student.name}}
+</td>
+
+<td>
+{{fee.amount}}
+</td>
+
+
+<td>
+{{fee.status}}
+</td>
+
+
+</tr>
+
+
+{% endfor %}
+
+
+</table>
+
+
+<a href="/">Back Dashboard</a>

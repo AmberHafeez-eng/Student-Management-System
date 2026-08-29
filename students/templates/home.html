@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Student Management System</title>
+
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+
+body{
+
+    margin:0;
+    font-family:'Segoe UI',Arial,sans-serif;
+    background:#f1f5f9;
+    color:#111;
+
+}
+
+
+/* NAVBAR */
+
+.navbar{
+
+    background:#1f4e79;
+    color:white;
+    padding:18px 35px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+}
+
+
+
+.logo{
+
+    font-size:28px;
+    font-weight:700;
+
+}
+
+
+
+.nav-links{
+
+    display:flex;
+    gap:20px;
+
+}
+
+
+
+.nav-links a{
+
+    color:white;
+    text-decoration:none;
+    font-size:17px;
+    padding:10px 15px;
+    border-radius:8px;
+    transition:.3s;
+
+}
+
+
+
+.nav-links a:hover{
+
+    background:white;
+    color:#1f4e79;
+
+}
+
+
+
+.menu-btn{
+
+    display:none;
+    background:white;
+    color:#1f4e79;
+    border:none;
+    font-size:25px;
+    padding:5px 12px;
+    border-radius:8px;
+
+}
+
+
+
+/* CONTAINER */
+
+
+.container{
+
+    padding:35px;
+
+}
+
+
+
+h1{
+
+    font-size:40px;
+
+}
+
+
+
+/* CARDS */
+
+
+.cards{
+
+    display:flex;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-top:25px;
+
+}
+
+
+
+.card{
+
+    background:white;
+    flex:1;
+    min-width:220px;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+    transition:.3s;
+    animation:slide .5s;
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+.card h2{
+
+    font-size:42px;
+    color:#1f4e79;
+    margin:0;
+
+}
+
+
+
+.card p{
+
+    font-size:18px;
+
+}
+
+
+
+@keyframes slide{
+
+from{
+
+opacity:0;
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+
+
+/* SEARCH */
+
+
+.search-box{
+
+    margin-top:35px;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+
+}
+
+
+
+input{
+
+    padding:14px;
+    width:350px;
+    max-width:90%;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+
+}
+
+
+
+button{
+
+    padding:14px 25px;
+    background:#1f4e79;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:15px;
+
+}
+
+
+
+button:hover{
+
+    opacity:.85;
+
+}
+
+
+
+
+/* TABLE */
+
+
+table{
+
+    width:100%;
+    margin-top:30px;
+    background:white;
+    border-collapse:collapse;
+    border-radius:15px;
+    overflow:hidden;
+
+}
+
+
+
+th{
+
+    background:#1f4e79;
+    color:white;
+    padding:18px;
+
+}
+
+
+
+td{
+
+    padding:18px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+
+}
+
+
+
+tr:hover{
+
+    background:#f5f9ff;
+
+}
+
+
+
+
+/* BUTTONS */
+
+
+.btn{
+
+    display:inline-block;
+    margin-top:25px;
+    margin-right:15px;
+    padding:14px 22px;
+    background:#1f4e79;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    transition:.3s;
+
+}
+
+
+
+.btn:hover{
+
+    transform:scale(1.05);
+
+}
+
+
+
+
+
+/* MOBILE */
+
+
+@media(max-width:768px){
+
+
+
+.navbar{
+
+    flex-direction:row;
+
+}
+
+
+
+.menu-btn{
+
+    display:block;
+
+}
+
+
+
+.nav-links{
+
+    display:none;
+    flex-direction:column;
+    width:100%;
+    margin-top:20px;
+
+}
+
+
+
+.nav-links.show{
+
+    display:flex;
+
+}
+
+
+
+.nav-links a{
+
+    width:100%;
+
+}
+
+
+
+.container{
+
+    padding:20px;
+
+}
+
+
+
+h1{
+
+    font-size:30px;
+
+}
+
+
+
+.cards{
+
+    flex-direction:column;
+
+}
+
+
+
+.card{
+
+    width:100%;
+
+}
+
+
+
+table{
+
+    display:block;
+    overflow-x:auto;
+    white-space:nowrap;
+
+}
+
+
+
+.btn{
+
+    width:100%;
+    text-align:center;
+
+}
+
+
+}
+
+
+</style>
+
+
+
+<script>
+
+function toggleMenu(){
+
+let menu=document.getElementById("navLinks");
+
+menu.classList.toggle("show");
+
+}
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+
+
+<nav class="navbar">
+
+
+<div class="logo">
+
+🎓 Student Management System
+
+</div>
+
+
+
+<button class="menu-btn" onclick="toggleMenu()">
+
+☰
+
+</button>
+
+
+
+<div class="nav-links" id="navLinks">
+
+
+<a href="/">
+🏠 Dashboard
+</a>
+
+
+<a href="/add-student/">
+➕ Add Student
+</a>
+
+
+<a href="/attendance/">
+📅 Attendance
+</a>
+
+
+<a href="/admin/">
+⚙ Admin
+</a>
+
+
+<a href="/logout/">
+🚪 Logout
+</a>
+
+
+</div>
+
+
+</nav>
+
+
+
+
+
+<div class="container">
+
+
+
+<h1>
+
+📊 Dashboard
+
+</h1>
+
+
+
+
+
+<div class="cards">
+
+
+
+<div class="card">
+
+<h2>
+{{ total_students }}
+</h2>
+
+<p>
+👨‍🎓 Total Students
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h2>
+{{ classrooms }}
+</h2>
+
+<p>
+🏫 Total Classes
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h2>
+{{ total_results }}
+</h2>
+
+<p>
+📚 Results Added
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h2>
+{{ attendance_percentage }}%
+</h2>
+
+<p>
+📅 Attendance
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h2>
+{{ fees_collected }}
+</h2>
+
+<p>
+💰 Fees Collected
+</p>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="search-box">
+
+
+<form method="GET">
+
+
+<input 
+type="text"
+name="search"
+placeholder="🔍 Search student by name..."
+>
+
+
+<button>
+
+Search
+
+</button>
+
+
+</form>
+
+
+</div>
+
+
+
+
+
+
+
+<h2>
+
+👨‍🎓 Student List
+
+</h2>
+
+
+
+
+
+<table>
+
+
+<tr>
+
+
+<th>Name</th>
+
+<th>Roll Number</th>
+
+<th>Class</th>
+
+<th>Phone</th>
+
+<th>Profile</th>
+
+
+</tr>
+
+
+
+
+{% for student in students %}
+
+
+<tr>
+
+
+<td>
+{{student.name}}
+</td>
+
+
+<td>
+{{student.roll_number}}
+</td>
+
+
+<td>
+{{student.classroom}}
+</td>
+
+
+<td>
+{{student.phone}}
+</td>
+
+<th>
+Photo
+</th>
+<td>
+
+{% if student.photo %}
+
+<img src="{{ student.photo.url }}"
+width="60"
+height="60"
+style="border-radius:50%;object-fit:cover;">
+
+{% else %}
+
+No Photo
+
+{% endif %}
+
+</td>
+<td>
+
+<a href="{% url 'student_detail' student.id %}">
+
+View Profile
+
+</a>
+
+</td>
+
+
+</tr>
+
+
+
+{% empty %}
+
+
+<tr>
+
+<td colspan="5">
+
+No students found
+
+</td>
+
+</tr>
+
+
+{% endfor %}
+
+
+</table>
+
+
+
+
+
+
+<a class="btn" href="{% url 'add_student' %}">
+
+➕ Add Student
+
+</a>
+
+
+
+<a class="btn" href="{% url 'add_attendance' %}">
+
+📅 Mark Attendance
+
+</a>
+
+
+
+
+<a class="btn" href="/admin/">
+
+⚙ Admin Panel
+
+</a>
+<a class="btn" href="{% url 'attendance_report' %}">
+📅 Attendance Report
+</a>
+
+
+<a class="btn" href="{% url 'result_report' %}">
+📄 Result Report
+</a>
+
+
+<a class="btn" href="{% url 'fee_report' %}">
+💰 Fee Report
+</a>
+
+
+<a class="btn" href="{% url 'export_excel' %}">
+📥 Export Excel
+</a>
+
+
+
+
+</div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<h1>Result Report</h1>
+
+
+<table border="1">
+
+<tr>
+
+<th>Student</th>
+<th>Subject</th>
+<th>Marks</th>
+
+</tr>
+
+
+{% for result in results %}
+
+<tr>
+
+<td>{{result.student.name}}</td>
+
+<td>{{result.subject}}</td>
+
+<td>
+{{result.marks}}/{{result.total_marks}}
+</td>
+
+
+</tr>
+
+{% endfor %}
+
+
+</table>
+
+
+<a href="/">Back Dashboard</a>

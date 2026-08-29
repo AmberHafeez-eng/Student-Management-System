@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Add Result</title>
+
+</head>
+
+
+<body>
+
+
+<h1>Add Student Result</h1>
+
+
+<form method="POST">
+
+{% csrf_token %}
+
+{{ form.as_p }}
+
+
+<button type="submit">
+Save Result
+</button>
+
+
+</form>
+
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<h1>Attendance Report</h1>
+
+
+<table border="1">
+
+<tr>
+<th>Name</th>
+<th>Total Days</th>
+<th>Present</th>
+<th>Percentage</th>
+</tr>
+
+
+{% for item in attendance_data %}
+
+<tr>
+
+<td>{{item.student.name}}</td>
+
+<td>{{item.total}}</td>
+
+<td>{{item.present}}</td>
+
+<td>{{item.percentage}}%</td>
+
+</tr>
+
+{% endfor %}
+
+
+</table>
+
+
+<a href="/">Back Dashboard</a>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Student Profile</title>
+
+
+<style>
+
+body{
+
+    font-family: Arial, sans-serif;
+    background:#f4f6f9;
+    margin:0;
+
+}
+
+
+.header{
+
+    background:#1f4e79;
+    color:white;
+    padding:20px 30px;
+    font-size:28px;
+    font-weight:bold;
+
+}
+
+
+
+.container{
+
+    padding:30px;
+
+}
+
+
+
+.card{
+
+    background:white;
+    padding:25px;
+    margin-bottom:25px;
+    border-radius:12px;
+    box-shadow:0 4px 10px #ccc;
+
+}
+
+
+
+h1,h2{
+
+    color:#1f4e79;
+
+}
+
+
+
+.btn{
+
+    display:inline-block;
+    background:#1f4e79;
+    color:white;
+    padding:10px 15px;
+    border-radius:8px;
+    text-decoration:none;
+    margin-right:10px;
+    margin-top:10px;
+
+}
+
+
+
+.delete{
+
+    background:#b30000;
+
+}
+
+
+
+table{
+
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+
+}
+
+
+
+th{
+
+    background:#1f4e79;
+    color:white;
+
+}
+
+
+
+td,th{
+
+    padding:12px;
+    border-bottom:1px solid #ddd;
+    text-align:left;
+
+}
+
+
+
+.action a{
+
+    margin-right:10px;
+    text-decoration:none;
+
+}
+
+
+
+.edit{
+
+    color:green;
+
+}
+
+
+
+.remove{
+
+    color:red;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="header">
+
+🎓 Student Profile
+
+</div>
+
+
+
+<div class="container">
+
+
+
+<div class="card">
+
+
+<h1>
+{{ student.name }}
+</h1>
+
+
+<p>
+<b>Roll Number:</b>
+{{ student.roll_number }}
+</p>
+
+
+<p>
+<b>Class:</b>
+{{ student.classroom }}
+</p>
+
+
+<p>
+<b>Phone:</b>
+{{ student.phone }}
+</p>
+
+{% if student.photo %}
+
+<img src="{{ student.photo.url }}"
+style="
+width:150px;
+height:150px;
+border-radius:50%;
+object-fit:cover;
+">
+
+{% else %}
+
+<p>No Photo Available</p>
+
+{% endif %}
+
+<a class="btn" href="{% url 'edit_student' student.id %}">
+✏ Edit Student
+</a>
+<a class="btn" href="{% url 'generate_id_card' student.id %}">
+🎓 Download Student ID Card
+</a>
+
+<a class="btn delete" href="{% url 'delete_student' student.id %}">
+🗑 Delete Student
+</a>
+
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+📊 Results
+</h2>
+
+
+
+<table>
+
+
+<tr>
+
+<th>
+Subject
+</th>
+
+<th>
+Marks
+</th>
+
+<th>
+Action
+</th>
+
+</tr>
+
+
+
+{% for result in results %}
+
+
+<tr>
+
+
+<td>
+{{ result.subject }}
+</td>
+
+
+
+<td>
+{{ result.marks }}
+</td>
+
+
+
+<td class="action">
+
+
+<a class="edit" href="{% url 'edit_result' result.id %}">
+✏ Edit
+</a>
+
+
+
+<a class="remove" href="{% url 'delete_result' result.id %}">
+🗑 Delete
+</a>
+
+
+
+</td>
+
+
+</tr>
+
+
+
+{% empty %}
+
+
+<tr>
+
+<td colspan="3">
+
+No Results Added
+
+</td>
+
+</tr>
+
+
+{% endfor %}
+
+
+
+</table>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+💰 Fees
+</h2>
+
+
+
+<table>
+
+
+<tr>
+
+<th>
+Month
+</th>
+
+
+<th>
+Amount
+</th>
+
+
+<th>
+Status
+</th>
+
+
+<th>
+Action
+</th>
+
+
+</tr>
+
+
+
+
+{% for fee in fees %}
+
+
+
+<tr>
+
+
+<td>
+{{ fee.month }}
+</td>
+
+
+
+<td>
+{{ fee.amount }}
+</td>
+
+
+
+<td>
+{{ fee.status }}
+</td>
+
+
+
+<td class="action">
+
+
+<a class="edit" href="{% url 'edit_fee' fee.id %}">
+✏ Edit
+</a>
+
+
+
+<a class="remove" href="{% url 'delete_fee' fee.id %}">
+🗑 Delete
+</a>
+
+
+
+</td>
+
+
+</tr>
+
+
+
+
+{% empty %}
+
+
+<tr>
+
+<td colspan="4">
+
+No Fee Record
+
+</td>
+
+</tr>
+
+
+
+{% endfor %}
+
+
+
+</table>
+
+
+
+</div>
+
+
+
+
+<div class="card">
+
+
+<h2>
+📅 Attendance
+</h2>
+
+
+<h3>
+Attendance Percentage:
+{{ attendance_percentage }}%
+</h3>
+
+
+
+<table>
+
+
+<tr>
+
+<th>
+Date
+</th>
+
+<th>
+Status
+</th>
+
+</tr>
+
+
+
+{% for record in attendance %}
+
+
+<tr>
+
+<td>
+{{ record.date }}
+</td>
+
+
+<td>
+{{ record.status }}
+</td>
+
+
+</tr>
+
+
+{% empty %}
+
+
+<tr>
+
+<td colspan="2">
+No Attendance Record
+</td>
+
+</tr>
+
+
+{% endfor %}
+
+
+</table>
+
+
+</div>
+<a class="btn" href="{% url 'home' %}">
+⬅ Back Dashboard
+</a>
+
+
+
+</div>
+<a class="btn" 
+href="{% url 'generate_report_card' student.id %}">
+📄 Download Report Card PDF
+</a>
+
+
+</body>
+
+</html>

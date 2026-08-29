@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Edit Student</title>
+
+</head>
+
+
+<body>
+
+
+<h1>
+Edit Student
+</h1>
+
+
+<form method="POST" enctype="multipart/form-data">
+
+{% csrf_token %}
+
+{{ form.as_p }}
+
+
+<button type="submit">
+Save Changes
+</button>
+
+
+</form>
+
+
+<a href="{% url 'student_detail' student.id %}">
+Back
+</a>
+
+
+</body>
+
+</html>

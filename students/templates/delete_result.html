@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Delete Result</title>
+</head>
+
+
+<body>
+
+
+<h1>🗑 Delete Result</h1>
+
+
+<p>
+Are you sure you want to delete this result?
+</p>
+
+
+<p>
+<b>
+{{ result.student.name }} - {{ result.subject }}
+</b>
+</p>
+
+
+
+<form method="POST">
+
+{% csrf_token %}
+
+
+<button type="submit">
+Yes Delete
+</button>
+
+
+</form>
+
+
+
+<a href="{% url 'student_detail' result.student.id %}">
+Cancel
+</a>
+
+
+</body>
+
+</html>
