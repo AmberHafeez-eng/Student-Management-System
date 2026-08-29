@@ -65,3 +65,21 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/AmberHafeez-eng/Student-Management-System.git
+## Technologies Used
+
+- Python
+- Django
+- HTML
+- CSS
+- Bootstrap
+- SQLite
+- ReportLab
+- QR Code Generation
+
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/AmberHafeez-eng/Student-Management-System.git
