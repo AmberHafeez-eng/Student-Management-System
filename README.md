@@ -92,4 +92,9 @@ git clone https://github.com/AmberHafeez-eng/Student-Management-System.git
 
 ### Fee Management
 ![Fees](screenshots/fees.png)
+## How to Run Project
 
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/AmberHafeez-eng/Student-Management-System.git
