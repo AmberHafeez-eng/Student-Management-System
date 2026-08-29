@@ -76,5 +76,20 @@ git clone https://github.com/AmberHafeez-eng/Student-Management-System.git
 - ReportLab
 - QR Code Generation
 
+## Screenshots
 
+### Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+### Student Profile
+![Student Profile](screenshots/student_profile.png)
+
+### Attendance
+![Attendance](screenshots/attendance.png)
+
+### Results
+![Results](screenshots/results.png)
+
+### Fee Management
+![Fees](screenshots/fees.png)
 
