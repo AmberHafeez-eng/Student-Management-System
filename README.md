@@ -79,20 +79,43 @@ git clone https://github.com/AmberHafeez-eng/Student-Management-System.git
 ## Screenshots
 
 ### Dashboard
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](screenshots/dasboard.png)
+
+### Dashboard 2
+![Dashboard 2](screenshots/dashboard%202.png)
+
+### Admin Portal
+![Admin Portal](screenshots/admin%20portal.png)
+
+### Add Student
+![Add Student](screenshots/add%20student.png)
 
 ### Student Profile
-![Student Profile](screenshots/student_profile.png)
+![Student Profile](screenshots/student%20profile%20.png)
 
-### Attendance
-![Attendance](screenshots/attendance.png)
+### Student Report Card
+![Student Report Card](screenshots/student%20reportcard.png)
 
-### Results
-![Results](screenshots/results.png)
+### Attendance of Student
+![Attendance](screenshots/attendaance%20of%20student.png)
 
-### Fee Management
-![Fees](screenshots/fees.png)
-## How to Run Project
+### Mark Attendance
+![Mark Attendance](screenshots/mark%20attendence.png)
+
+### Attendance Report
+![Attendance Report](screenshots/attendence%20report.png)
+
+### Result Report
+![Result Report](screenshots/result%20report.png)
+
+### Result and Fee of Student
+![Result Fee](screenshots/result%20fee%20of%20student.png)
+
+### Fee Report
+![Fee Report](screenshots/fee%20report.png)
+
+### Student Excel Sheet
+![Excel Sheet](screenshots/student%20excel%20sheet.png)
 
 ### 1. Clone Repository
 
