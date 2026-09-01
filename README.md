@@ -224,10 +224,4 @@ The project uses SQLite as the default database.
 **Amber Hafeez**
 
 GitHub: https://github.com/AmberHafeez-eng
-## How to Run
 
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/AmberHafeez-eng/Student-Management-System.git
-cd Student-Management-System
