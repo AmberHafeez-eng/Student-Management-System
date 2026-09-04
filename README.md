@@ -1,6 +1,12 @@
 # Student Management System
 
 A complete Django-based Student Management System designed to manage students, attendance, results, fees, profiles, ID cards, QR verification, and reporting.
+## 🌐 Live Demo
+
+🚀 The project is deployed and available online:
+
+🔗 https://amberhafeez.pythonanywhere.com/
+
 ## Screenshots
 
 ### Dashboard
